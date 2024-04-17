@@ -106,6 +106,16 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+
+const parentObject = document.getElementById('footnotes');
+
+[...parentObject.children].forEach((parent, i) => {
+  // const childElement = document.createElement('p');
+  // childElement.innerHTML = '${i}';
+  // parent.prepend(childElement)
+  console.log(parent)
+});
+
 </script>
 
 </body>

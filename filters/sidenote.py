@@ -48,13 +48,13 @@ def sidenote_html(key, value):
             return [html(pre)] + contents[1:][1:] + [html(post)]
 
         global sidenote_count
-        pre += ('<label for="sn-%d" class="margin-toggle sidenote-number"></label>'
-                % sidenote_count)
-        pre += ('<input type="checkbox" id="sn-%d" class="margin-toggle" />'
-                % sidenote_count)
+        pre += ('<label for="sn-{}" class="margin-toggle sidenote-number">[{}]</label>'.format(sidenote_count, sidenote_count+1))
+        pre += ('<input type="checkbox" id="sn-{}" class="margin-toggle" />'.format(sidenote_count))
         pre += '<span class="sidenote">'
         sidenote_count += 1
-        return  [html(pre)] + contents + [html(post)]
+
+    
+        return  [html(pre)] + [{'t': 'Str', 'c': "[{}]: \n".format(sidenote_count)}] + contents + [html(post)]
 
 
 def sidenote_latex(key, value):
@@ -72,7 +72,7 @@ def sidenote_latex(key, value):
 #pylint: disable=unused-argument
 def sidenote(key, value, fmt, meta):
     """Select action based on format."""
-
+    
     if fmt == 'html5':
         return sidenote_html(key, value)
 

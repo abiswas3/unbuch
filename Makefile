@@ -1,19 +1,16 @@
 # Edit variables below to customize book
-booktitle = Book title
+booktitle = Notes On Consensus
 booksubtitle = Book subtitle
-bookauthors = Author 1, Author 2
+bookauthors = Ari Biswas
 bookfilename = book
 
 # Add all sources that need to compile to some html page
 SOURCES := sources/index.md \
-           sources/chapter1.md \
            sources/chapter2.md \
-           sources/chapter3.md \
+           
 
 # Put everything that should compile into an individual chapter.
-CHAPTERS := sources/chapter1.md \
-            sources/chapter2.md \
-            sources/chapter3.md \
+CHAPTERS := sources/chapter2.md \
 
 
 ################################################################################
@@ -27,7 +24,7 @@ STYLES := css/tufte.css \
           css/frontpage.css \
 
 # Collect assets to be copied for html version.
-WEBASSETS := $(wildcard assets/*.svg assets/*.jpg assets/*.png)
+WEBASSETS := $(wildcard assets/*.svg assets/*.jpg assets/*.png assets/*.gif)
 
 # Create targets for each web asset.
 WEBTARGETS = $(patsubst %,publish/%,$(WEBASSETS))
@@ -60,7 +57,7 @@ publish/%.html: sources/%.md templates/tufte.html5 Makefile $(FILTERS) reference
     --citeproc \
     --template templates/tufte.html5 \
     --csl=templates/chicago-fullnote-bibliography.csl \
-    --metadata link-citations=false \
+    --metadata link-citations=true \
     --bibliography=references.bib \
     --strip-comments \
     --katex \
@@ -69,9 +66,9 @@ publish/%.html: sources/%.md templates/tufte.html5 Makefile $(FILTERS) reference
     --table-of-contents \
     --toc-depth=2 \
     --filter ./filters/whitespace.py \
-    --filter ./filters/sidenote.py \
     --filter ./filters/crossrefs.py \
     --filter ./filters/numenvs.py \
+    --filter ./filters/sidenote.py \
     --css style.css \
     --variable lang="en" \
     --variable lastupdate="`date -r $<`" \

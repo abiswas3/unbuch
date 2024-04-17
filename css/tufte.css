@@ -14,19 +14,30 @@ body {
     margin-right: auto;
     padding-left: 12.5%;
     font-family: Merriweather, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-    color: #313131;
+/*    color: #313131;*/
+    background-color: #222;
+    color: #E5E4E2;    
     max-width: 1200px;
-    counter-reset: sidenote-counter figure-counter; 
+    counter-reset: section figure-counter; 
+}
+
+.sidenote{
+    counter-reset: sidenote-counter
 }
 
 h1, h2, h3, #chapter {
-    font-family: Palatino;
+/*    font-family: Palatino;
     font-weight: 100;
-    color: #333;
-    font-style: italic;
+    color: #E5E4E2;    
+    font-style: italic;*/
 
 }
 
+/*h1::before {
+  counter-increment: section;
+  content: "Section " counter(section) ": ";
+}
+*/
 #chapter {
     margin-top: 25px;
     font-size: 4rem;
@@ -94,12 +105,28 @@ figure.fullwidth figcaption { margin-right: 24%; }
 
 a:link, a:visited {
   text-decoration: none;
-  color: #00416A;
+  color: #E5E4E2;    
   border-bottom:1px solid #00416A;
 }
 
 /* Sidenotes, margin notes, figures, captions */
 img { max-width: 100%; }
+
+
+.footnote-ref sup:before {
+    content: '[';
+    color: whitesmoke;
+    
+}
+.footnote-ref sup:after {
+   content: ']';
+    color: whitesmoke;
+
+}
+
+.footnote-ref sup{
+    color: hotpink;   
+}
 
 .sidenote, .marginnote, figcaption { 
     float: right;
@@ -112,6 +139,17 @@ img { max-width: 100%; }
     line-height: 1.3;
     vertical-align: baseline;
     position: relative; 
+    margin-bottom: 10px;
+}
+
+.sidenote-number{
+    font-family: monospace;
+    font-size: 1rem;
+    top: -0.5rem;
+    left: 0.1rem; 
+    position: relative;
+    color: hotpink;    
+    vertical-align: baseline;   
 }
 
 figcaption {
@@ -120,14 +158,18 @@ figcaption {
     clear: both;
 }
 
-.sidenote-number { counter-increment: sidenote-counter; color:#4682B4;}
+
+/*.sidenote-number { counter-increment: sidenote-counter; }*/
 
 figcaption { counter-increment: figure-counter; }
 
-.sidenote-number:after, .sidenote:before { 
-    content: counter(sidenote-counter) " ";
+
+
+.sidenote::before { 
+    counter-increment: sidenote-counter;
+/*    content: "[" counter(sidenote-counter)"]:";*/
     position: relative;
-    color:#4682B4;
+    color: red;    
     vertical-align: baseline; 
 }
 
@@ -139,20 +181,6 @@ figcaption:before  {
     font-size: 1.2rem; 
 }
 
-.sidenote-number:after { 
-    content: counter(sidenote-counter);
-    font-family: monospace;
-    font-size: 1rem;
-    top: -0.5rem;
-    left: 0.1rem; 
-}
-
-.sidenote:before { 
-    content: counter(sidenote-counter) ":";
-    /* top: -0.4rem; */
-    font-family:monospace;
-    margin-right:0.3rem;
-}
 
 p, footer, pre, .references { width: 60%; }
 
@@ -219,10 +247,10 @@ span.newthought { font-variant: small-caps;
 
 input.margin-toggle { display: none; }
 
-label.sidenote-number { display: inline; }
+/*label.sidenote-number { display: inline; }
 
 label.margin-toggle:not(.sidenote-number) { display: none; }
-
+*/
 @media (max-width: 860px) { 
     body { 
         width: 84%;

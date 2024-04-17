@@ -8,6 +8,7 @@
   top: 0px;
   width:300px;
   z-index:99;
+
 }
 
 @media (max-width: 860px) {
@@ -17,15 +18,15 @@
 }
 
 #collapsiblemenu .collapsible {
-  color: white;
+  color: #E5E4E2;
   cursor: pointer;
   padding: 18px;
-  width: 100%;
+  width: 25%;
   border: none;
   text-align: left;
   outline: none;
   font-size: 15px;
-  background:none;
+  
 }
 
 #collapsiblemenu .active {
@@ -44,7 +45,7 @@
   padding: 0 18px;
   display: none;
   overflow: hidden;
-  background-color: #f1f1f1;
+  background-color: #222;
   border-bottom-right-radius: 25px;
 }
 
