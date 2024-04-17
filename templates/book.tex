@@ -19,8 +19,60 @@
 \usepackage{marginfix}
 \usepackage[morefloats=100]{morefloats}
 
+% My additions
+\usepackage{thmtools}
+\usepackage{mdframed}
 
+\definecolor{amber}{rgb}{1.0, 0.49, 0.0}
+\definecolor{cadmiumgreen}{rgb}{0.0, 0.42, 0.24}
+\definecolor{darkcyan}{rgb}{0.0, 0.55, 0.55}
+\definecolor{darkcoral}{rgb}{0.8, 0.36, 0.27}
+\definecolor{azure}{rgb}{0.0, 0.5, 1.0}
+\definecolor{bittersweet}{rgb}{1.0, 0.44, 0.37}
+\definecolor{razzmatazz}{rgb}{0.89, 0.15, 0.42}
+\definecolor{ballblue}{rgb}{0.13, 0.67, 0.8}
+\definecolor{purple}{rgb}{0.2, 0.2, 0.6}
+\definecolor{egyptianblue}{rgb}{0.06, 0.2, 0.65}
+\definecolor{darkslategray}{rgb}{0.0, 0.29, 0.29}
+\definecolor{bananayellow}{rgb}{1.0, 0.88, 0.21}
+\definecolor{blue-violet}{rgb}{0.54, 0.17, 0.89}
+\definecolor{carminepink}{rgb}{0.82, 0.41, 0.12}
+\definecolor{titlecolor}{RGB}{0,74,147}
+\definecolor{sectioncolor}{RGB}{0,129,255}
+\definecolor{subsectioncolor}{RGB}{0,129,255}
+\definecolor{definitioncolor}{rgb}{0.89, 0.0, 0.13}
+
+% \newtheorem{Definition}{Definition}
+% Definition style
+\newtheoremstyle{definitionstyle}
+  {\topsep} % Space above
+  {\topsep} % Space below
+  {} % Body font
+  {} % Indent amount
+  {\bfseries\color{definitioncolor}} % Theorem head font
+  {} % Punctuation after theorem head
+  {.5em} % Space after theorem head
+  {} % Theorem head spec (can be left empty, meaning ‘normal’)
+
+% Define mdframed settings
+\mdfdefinestyle{definitionframe}{
+  linecolor=definitioncolor,
+  linewidth=2pt,
+  frametitlerule=true,
+  frametitlebackgroundcolor=gray!20,
+  % backgroundcolor=azure!10,
+  roundcorner=5pt,
+  nobreak=true,
+  topline=false,
+  bottomline=false,
+  rightline=false,
+}
+% Definition environment
+\theoremstyle{definitionstyle}
 \newtheorem{Definition}{Definition}
+\surroundwithmdframed[style=definitionframe]{definition}
+
+
 \newtheorem{Theorem}{Theorem}
 \newtheorem{Lemma}{Lemma}
 \newtheorem{Exercise}{Exercise}

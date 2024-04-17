@@ -87,4 +87,25 @@
 
 .numenv .title {
   border: none;
+  color: blue;
+  box-shadow: none;
+}
+
+.numenv.Definition, .numenv.Theorem{
+  background-Color: #ffc; 
+  box-shadow: 5px 5px 3px 0px rgba(119,119,119,0.7);
+  text-align: justify;
+/*  color: #71797E;*/
+/*  position:relative;*/
+}
+
+.numenv.Definition .title, .numenv.Theorem .title {
+  border: none;
+  color: blue;
+  box-shadow: none;
+}
+
+
+.numenv.Definition p{
+  color: red;  
 }

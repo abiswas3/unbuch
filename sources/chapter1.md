@@ -142,11 +142,11 @@ end-Theorem
 
 !{thm:deep}
 
-begin+Theorem
+begin-Theorem
 
 $1 + 1 = 2$
 
-end+Theorem
+end-Theorem
 
 We saw in Theorem !{thm:deep} that $1+1=2$.
 
@@ -158,3 +158,5 @@ This also works with equations.
 $$
 1 + 1 = 2\qquad(!{eq:blah})
 $$
+
+
